@@ -19,7 +19,7 @@ public class WhoIsWinnerView {
         sb.append(s);
         sb.append("가 최종 우승했습니다.");
         bw.write(sb.toString());
-        bw. flush();
+        bw.flush();
         bw.close();
 
     }

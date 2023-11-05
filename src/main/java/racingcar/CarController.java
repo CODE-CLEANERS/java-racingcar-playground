@@ -14,8 +14,8 @@ public class CarController {
 
     public void go() throws IOException {
         carNameView.go();
-//        raceTryView.go();
-//        raceResultView.go();
+        raceTryView.go();
+        raceResultView.go();
 //        whoIsWinnerView.go();
     }
 }

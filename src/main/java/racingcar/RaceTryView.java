@@ -12,24 +12,10 @@ public class RaceTryView {
     }
 
     public void go() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        System.out.println("시도할 횟수는 몇 회인가요?\n");
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("시도할 횟수는 몇 회인가요?\n");
-        bw.write(sb.toString());
-        bw.flush();
-
-//        StringTokenizer st = new StringTokenizer(
-//            br.readLine()
-//        );
         Scanner sc = new Scanner(System.in);
-//        String numString = st.nextToken();
-//        int num = Integer.parseInt(numString);
-        int num = sc.nextInt();
-        this.tryNum = num;
-        bw.close();
-        br.close();
+        this.tryNum = sc.nextInt();
         System.out.println(tryNum);
     }
 

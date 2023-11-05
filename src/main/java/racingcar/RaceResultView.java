@@ -1,32 +1,31 @@
 package racingcar;
 
-import java.io.*;
+import java.util.Scanner;
 
 public class RaceResultView {
     CarNameView carNameView;
+    RaceTryView raceTryView;
     public RaceResultView(){
 
     }
-    public void go() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public void go() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("실행 결과\n");
 
-        bw.write("실행 결과\n");
-
-        StringBuilder sb = new StringBuilder();
         CarGroup carGroup = carNameView.getCarGroup();
-        for (Car car : carGroup.getCarList()) {
-            sb.append(car.getCarName());
-            sb.append(" : ");
-            int score = car.getScore();
-            //score 를 dash로 변환
-            sb.append(car.scoreToDash(score));
-            bw.write(sb.toString());
-            bw.write("\n");
+        int tryNum = raceTryView.getTryNum();
+        for (int i =0;i<tryNum;i++){
+            for (Car car : carGroup.getCarList()) {
+                int score = car.getScore();
+                System.out.println(
+                    car.getCarName()
+                        + " : "
+                        + car.scoreToDash(score)
+                        + "\n"
+                );
+            }
+            System.out.println("\n");
         }
-        bw.write("\n");
-        bw.flush();
-        bw.close();
-        br.close();
+        System.out.println("result view 완료");
     }
 }
