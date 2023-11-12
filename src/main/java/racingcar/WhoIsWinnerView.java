@@ -1,20 +1,22 @@
 package racingcar;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedHashMap;
 
 public class WhoIsWinnerView {
     private final CarNameView carNameView;
+    private final RaceResultView raceResultView;
 
-    public WhoIsWinnerView(CarNameView carNameView){
+    public WhoIsWinnerView(CarNameView carNameView, RaceResultView raceResultView){
         this.carNameView = carNameView;
+        this.raceResultView = raceResultView;
     }
     public void go() throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
-        List<Car> carList = carNameView.getCarGroup().getCarList();
-        String s = Arrays.toString(carList.toArray());
+        LinkedHashMap<Car,Integer> carList = carNameView.getCarGroup().getCarList();
+
+        String s = carList.toString();
         s = removeParentheses(s);
         sb.append(s);
         sb.append("가 최종 우승했습니다.");

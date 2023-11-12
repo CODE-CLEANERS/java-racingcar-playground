@@ -15,13 +15,16 @@ public class RaceResultView {
         CarGroup carGroup = carNameView.getCarGroup();
         int tryNum = raceTryView.getTryNum();
         for (int i =0;i<tryNum;i++){
-            for (Car car : carGroup.getCarList()) {
-                int score = car.getScore();
+
+            for (Car car : carGroup.getCarList().keySet()) {
+                car.drive();
+                Integer score = car.getScore();
                 System.out.println(
                     car.getCarName()
                         + " : "
                         + car.scoreToDash(score)
-                        + "\n"
+                        + "="
+                        + car.scoreToDash(2)
                 );
             }
             System.out.println("\n");

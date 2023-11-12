@@ -4,9 +4,9 @@ import java.util.StringTokenizer;
 
 public class Car {
     //필드
-    String carName;
-    int score;
-    boolean win;
+    private final String carName;
+    private int score;
+    private boolean win;
     private final int randomNum = 4;
 
     //생성자
@@ -19,7 +19,7 @@ public class Car {
     }
 
     public Integer getScore() {
-        return score;
+        return this.score;
     }
     public String scoreToDash(int score){
         StringBuilder sb = new StringBuilder();
@@ -31,14 +31,13 @@ public class Car {
     }
 
     private void addScore(){
-        int score = getScore();
+        Integer score = getScore();
         this.score = score++;
     }
 
-    private void drive(){
+    public void drive(){
         double r = Math.random();
         int t = Math.toIntExact(Math.round(r * 10));
-        int s = getScore();
         if(t>=randomNum) addScore();
     }
 

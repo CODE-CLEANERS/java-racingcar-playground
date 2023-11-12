@@ -7,7 +7,6 @@ public class CarNameView {
     private CarGroup carGroup;
     private static final Scanner sc = new Scanner(System.in);
     public CarNameView(){
-
     }
 
     public void go() throws IOException {

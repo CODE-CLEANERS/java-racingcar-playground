@@ -1,16 +1,18 @@
 package racingcar;
 
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
 public class CarGroup {
-    List<Car> carList = new LinkedList<>();
+    private final LinkedHashMap<Car,Integer> carList = new LinkedHashMap<>();
     private int maxScore =0;
 
     CarGroup(String[] carList){
+
         for (String s:carList){
             Car car = new Car(s);
-            this.carList.add(car);
+            this.carList.put(car,maxScore);
         }
     }
 
@@ -19,7 +21,7 @@ public class CarGroup {
     }
 
     public int getMaxScore(){
-        for (Car car:carList){
+        for (Car car:getCarList().keySet()){
             int i = car.getScore();
             if(maxScore<i) maxScore=i;
         }
@@ -28,13 +30,13 @@ public class CarGroup {
 
     public int countWinCar() {
         int result = 0;
-        for (Car car : carList) {
+        for (Car car : getCarList().keySet()) {
             if (car.getScore().equals(maxScore)) result++;
         }
         return result;
     }
 
-    public List<Car> getCarList(){
+    public LinkedHashMap<Car,Integer> getCarList(){
         return carList;
     }
 
