@@ -7,7 +7,6 @@ public class Car {
     private final String carName;
     private int score;
     private boolean win;
-    private final int randomNum = 4;
 
     //생성자
     Car(String carName){
@@ -31,14 +30,13 @@ public class Car {
     }
 
     private void addScore(){
-        Integer score = getScore();
-        this.score = score++;
+        this.score = getScore()+1;
     }
 
     public void drive(){
         double r = Math.random();
         int t = Math.toIntExact(Math.round(r * 10));
-        if(t>=randomNum) addScore();
+        if(t>=4) addScore();
     }
 
     public boolean isWin(){

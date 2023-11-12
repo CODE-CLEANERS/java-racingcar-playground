@@ -16,19 +16,18 @@ public class RaceResultView {
         int tryNum = raceTryView.getTryNum();
         for (int i =0;i<tryNum;i++){
 
-            for (Car car : carGroup.getCarList().keySet()) {
+            for (Car car : carGroup.getCarList()) {
                 car.drive();
                 Integer score = car.getScore();
                 System.out.println(
                     car.getCarName()
                         + " : "
                         + car.scoreToDash(score)
-                        + "="
-                        + car.scoreToDash(2)
                 );
             }
-            System.out.println("\n");
+            System.out.println("");
         }
         System.out.println("result view 완료");
     }
+
 }

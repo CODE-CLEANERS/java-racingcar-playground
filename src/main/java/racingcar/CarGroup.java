@@ -5,14 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CarGroup {
-    private final LinkedHashMap<Car,Integer> carList = new LinkedHashMap<>();
+    private final List<Car> carList = new LinkedList<>();
     private int maxScore =0;
 
     CarGroup(String[] carList){
 
         for (String s:carList){
             Car car = new Car(s);
-            this.carList.put(car,maxScore);
+            this.carList.add(car);
         }
     }
 
@@ -21,7 +21,7 @@ public class CarGroup {
     }
 
     public int getMaxScore(){
-        for (Car car:getCarList().keySet()){
+        for (Car car: getCarList()){
             int i = car.getScore();
             if(maxScore<i) maxScore=i;
         }
@@ -30,14 +30,14 @@ public class CarGroup {
 
     public int countWinCar() {
         int result = 0;
-        for (Car car : getCarList().keySet()) {
+        for (Car car : getCarList()) {
             if (car.getScore().equals(maxScore)) result++;
         }
         return result;
     }
 
-    public LinkedHashMap<Car,Integer> getCarList(){
-        return carList;
+    public List<Car> getCarList(){
+        return this.carList;
     }
 
 
