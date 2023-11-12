@@ -1,12 +1,10 @@
 package racingcar;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class CarNameView {
-    CarGroup carGroup;
+    private CarGroup carGroup;
     private static final Scanner sc = new Scanner(System.in);
     public CarNameView(){
 
@@ -18,7 +16,7 @@ public class CarNameView {
         String names = sc.nextLine();
         String[] carNames = names.split(",");
 
-        carGroup = new CarGroup(carNames);
+        this.carGroup = new CarGroup(carNames);
 
         System.out.println(carGroup.countCar());
     }

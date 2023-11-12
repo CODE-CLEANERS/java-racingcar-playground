@@ -5,15 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class WhoIsWinnerView {
-    private CarGroup carGroup;
+    private final CarNameView carNameView;
 
-    public WhoIsWinnerView(){
-
+    public WhoIsWinnerView(CarNameView carNameView){
+        this.carNameView = carNameView;
     }
     public void go() throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
-        List<Car> carList = carGroup.getCarList();
+        List<Car> carList = carNameView.getCarGroup().getCarList();
         String s = Arrays.toString(carList.toArray());
         s = removeParentheses(s);
         sb.append(s);
